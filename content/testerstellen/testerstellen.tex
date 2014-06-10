@@ -13,11 +13,52 @@
 % 0.0.0       Erstellung der Datei
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Erstellen eines JUnit-Tests}\label{ch:testerstellen}
+	Seit der Version 3.2 ist \textsf{JUnit} ein fester Bestandteil der \textsf{Eclipse IDE}. Somit ist das Testen von Software in \textsf{Eclipse} einfacher denn je. Eine Klasse kann bei der Erstellung der Tests selektiert werden und der Benutzer kann ohne jeglichen Code schreiben zu müssen die Grobstruktur des Test generieren. In der Folgenden Anleitung werden die einzelnen Schritte der Reihe nach erl"autert.\par
 	%
-	\section{JUnit und Eclipse}\label{s:junitundeclipse}
+	Die folgende Anleitung wird anhand eines simplen Rechners als Beispiel veranschaulicht. Mit Hilfe dieses Modells werden die grundlegenden Schritte für das erfolgreiche Erstellen eines Test beschrieben.
+	%
+	\section{Calculator Modell}\label{s:calculatormodell}
+		Wie Bereits erwähnt, wird als einfaches Beispiel ein Rechner umgesetzt. Um die Funktionsweise eines Unit-Test zu verdeutlichen werden zwei Methoden implementiert:
+		%
+		\begin{description}
+			\item[add()] Die Methode \textsf{add()} addiert zwei übergebene Integer und gib das Resultat zur"uck.
+			\item[multyply()] Diese Methode multipliziert zwei Variablen und liefert das Ergebnis zur"uck. 
+		\end{description}
+		%
+		Die Klasse mit diesen beiden simplen Methoden wird, wie in Listing \ref{list:calculatorclass} abgebildet, in einem neuen Java-Projekt implementiert.
+
+\begin{lstlisting}[style=JAVA,caption={Calculator Klasse},label={list:calculatorclass}]
+package ApplicationCode;
+
+public class Calculator {
+	
+	public int add(int num1, int num2){
+		return num1 + num2;
+	}
+	
+	public int multiply(int num1, int num2){
+		return num1 * num2;
+	}
+
+}
+\end{lstlisting}
 		%
 	\section{Schritt f"ur Schritt Anleitung}\label{s:anleitung}
+		Auf den Folgenden Seiten wird Schritt f"ur Schritt auf die einzelnen Arbeitsschritte eines erfolgreichen Unit-Test mit \textsf{JUnit} eingegangen. Dabei wird das das in \ref{s:calculatormodell} auf Seite \pageref{s:calculatormodell} beschriebene Modell getestet.
 		%
-		\subsection*{Erstellen einer Testklasse}\label{s:testklasseerstellen}
+		\subsection*{Ordnerstruktur}\label{s:ordnerstruktur}
+			Um ein Unit-Test zu erstellen empfiehlt es sich innerhalb eines Projektes eine klare Struktur für die Tests aufzubauen. Eine gute M"oglichkeit die Test vom "ubrigen Code Abzutrennen ist ein zusätzlicher Source-Folder. Diese kann via \textit{File $\rightarrow$ New $\rightarrow$ Source Folder} erstellt werden. Der neue Ordner sollte einen etwas aussagekräftigen Namen wie z.B. Test, UnitTest oder etwas in diese Richtung haben, damit eine andere Person einfach erkennen kann, für was dieser Ordner erstellt wurde.
 			%
-		\subsection*{Punkt 2 bla bla}\label{s:label}
+		\subsection*{Erstellen einer Testklasse}\label{s:testklasseerstellen}
+		Nach dem Erstellen des neuen Ordners kann eine neue Testklasse erstellt werden. Dazu wird mit \textit{File $\rightarrow$ New $\rightarrow$ Other...} das Kontextmen"u (Abbildung \ref{s:calculatormodell}) für neue Klassen aufgerufen werden.\par
+		%
+		\image{content/testerstellen/image/AuswahlJUnit.png}{scale=.4}{htbp}[Literaturverzeichnis erstellen]
+		%
+		Im Suchfeld kann Nach \textsf{JUnit} gesucht werden. Durch selektieren von JUnit Test Case und Klicken auf Next, wird das nächste Fenster geöffnet.
+		%
+	\section{Zusammenfassung}\label{s:zusammenfassung}
+		Die einzelnen Schritte werden hier noch einmal kurz zusammengefasst:
+		%
+		\begin{enumerate}
+			\item Source-Folder für Tests erstellen unter \textit{File $\rightarrow$ New $\rightarrow$ Source Folder}.
+		\end{enumerate}
