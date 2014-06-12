@@ -50,15 +50,60 @@ public class Calculator {
 			Um ein Unit-Test zu erstellen empfiehlt es sich innerhalb eines Projektes eine klare Struktur für die Tests aufzubauen. Eine gute M"oglichkeit die Test vom "ubrigen Code Abzutrennen ist ein zusätzlicher Source-Folder. Diese kann via \textit{File $\rightarrow$ New $\rightarrow$ Source Folder} erstellt werden. Der neue Ordner sollte einen etwas aussagekräftigen Namen wie z.B. Test, UnitTest oder etwas in diese Richtung haben, damit eine andere Person einfach erkennen kann, für was dieser Ordner erstellt wurde.
 			%
 		\subsection*{Erstellen einer Testklasse}\label{s:testklasseerstellen}
-		Nach dem Erstellen des neuen Ordners kann eine neue Testklasse erstellt werden. Dazu wird mit \textit{File $\rightarrow$ New $\rightarrow$ Other...} das Kontextmen"u (Abbildung \ref{s:calculatormodell}) für neue Klassen aufgerufen werden.\par
+		Nach dem Erstellen des neuen Ordners kann eine neue Testklasse erstellt werden. Dazu wird mit \textit{File $\rightarrow$ New $\rightarrow$ Other...} das Kontextmen"u (Abbildung \ref{abb:auswahljunit}) für neue Klassen aufgerufen werden.\par
 		%
-		\image{content/testerstellen/image/AuswahlJUnit.png}{scale=.4}{htbp}[Literaturverzeichnis erstellen]
+		\image{content/testerstellen/image/AuswahlJUnit.png}{scale=0.4}{htbp}[Auswahl JUnit Test Case][Auswahl JUnit Test Case][abb:auswahljunit]
 		%
-		Im Suchfeld kann Nach \textsf{JUnit} gesucht werden. Durch selektieren von JUnit Test Case und Klicken auf Next, wird das nächste Fenster geöffnet.
+		Im Suchfeld kann Nach \textsf{JUnit} gesucht werden. Durch selektieren von JUnit Test Case und Klicken auf Next, wird das nächste Fenster geöffnet. Im neuen Menü, abgebildet in der Grafik \ref{abb:testcaseerstellen}, müssen folgende Einstellungen vorgenommen werden:
+		%
+		\image{content/testerstellen/image/TestCaseErstellen.png}{scale=0.4}{htbp}[Test Case Einstellungen][Einstellungen für den JUnit Test Case][abb:testcaseerstellen] 
+		%
+		\begin{enumerate}
+		\item New JUnit 4 test.
+		\item Auswahl des erstellten Test Source-Folders.
+		\item Erstellen oder auswählen eines Packages innerhalb des Ordners
+		\item Name f"ur den Test eingeben (hier CalculatorTest)
+		\item Wenn gewünscht können Hilfsmethoden ausgewählt werden.
+		\item Auswahl der Klasse, die getestet werden soll.
+		\item Weiter mit dem Next-Button
+		\end{enumerate}
+		%
+		\newpage
+		Im n"achsten Fenster (Abbildung \ref{abb:auswahlmethoden}) kann ausgewählt werden, welche Methoden getestet werden sollen. Für den Rechner werden die beiden Funktionen add() und multyply() getestet. Durch Klicken auf Finish wird die Testklasse erstellt.\par
+		%
+		\image{content/testerstellen/image/AuswahlMethoden.png}{scale=0.4}{htbp}[Auswahl der Methoden][Auswahl der zu testenden Methoden][abb:auswahlmethoden] 
+		%
+		Anschliessend wird die Testklasse automatisch generiert. Dabei wird für den Test des Rechners folgender Code erzeugt:\\
+		%
+\begin{lstlisting}[style=JAVA,caption={Hallo Welt},label={list:hallowelt}]
+package ApplicationCodeTest;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class CalculatorTest {
+
+	@Test
+	public void testAdd() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testMultiply() {
+		fail("Not yet implemented");
+	}
+}
+\end{lstlisting}
 		%
 	\section{Zusammenfassung}\label{s:zusammenfassung}
 		Die einzelnen Schritte werden hier noch einmal kurz zusammengefasst:
 		%
 		\begin{enumerate}
 			\item Source-Folder für Tests erstellen unter \textit{File $\rightarrow$ New $\rightarrow$ Source Folder}.
+			%
+			\item Menu für eine neue Testklasse öffnen mit \textit{File $\rightarrow$ New $\rightarrow$ Other... $\rightarrow$ JUnit Test Case}.
+			%
+			\item Einstellungen (siehe Abbildung \ref{abb:testcaseerstellen} auf Seite \pageref{abb:testcaseerstellen}) für die Testklasse vornehmen und auf Next klicken.
+			%
+			\item Auswahl der zu testenden Methoden, beenden mit Klick auf Finish.
 		\end{enumerate}
