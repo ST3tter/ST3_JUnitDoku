@@ -47,10 +47,10 @@ public class Calculator {
 		Auf den Folgenden Seiten wird Schritt f"ur Schritt auf die einzelnen Arbeitsschritte eines erfolgreichen Unit-Test mit \textsf{JUnit} eingegangen. Dabei wird das das in \ref{s:calculatormodell} auf Seite \pageref{s:calculatormodell} beschriebene Modell getestet.
 		%
 		\subsection*{Ordnerstruktur}\label{s:ordnerstruktur}
-			Um ein Unit-Test zu erstellen empfiehlt es sich innerhalb eines Projektes eine klare Struktur für die Tests aufzubauen. Eine gute M"oglichkeit die Test vom "ubrigen Code Abzutrennen ist ein zusätzlicher Source-Folder. Diese kann via \textit{File $\rightarrow$ New $\rightarrow$ Source Folder} erstellt werden. Der neue Ordner sollte einen etwas aussagekräftigen Namen wie z.B. Test, UnitTest oder etwas in diese Richtung haben, damit eine andere Person einfach erkennen kann, für was dieser Ordner erstellt wurde.
+			Um ein Unit-Test zu erstellen empfiehlt es sich innerhalb eines Projektes eine klare Struktur für die Tests aufzubauen. Eine gute M"oglichkeit die Test vom "ubrigen Code Abzutrennen ist ein zusätzlicher Source-Folder. Diese kann via \textcolor{bfhorange}{\textsf{File $\rightarrow$ New $\rightarrow$ Source Folder}} erstellt werden. Der neue Ordner sollte einen etwas aussagekräftigen Namen wie z.B. Test, UnitTest oder etwas in diese Richtung haben, damit eine andere Person einfach erkennen kann, für was dieser Ordner erstellt wurde.
 			%
 		\subsection*{Erstellen einer Testklasse}\label{s:testklasseerstellen}
-		Nach dem Erstellen des neuen Ordners kann eine neue Testklasse erstellt werden. Dazu wird mit \textit{File $\rightarrow$ New $\rightarrow$ Other...} das Kontextmen"u (Abbildung \ref{abb:auswahljunit}) für neue Klassen aufgerufen werden.\par
+		Nach dem Erstellen des neuen Ordners kann eine neue Testklasse erstellt werden. Dazu wird mit \textcolor{bfhorange}{\textsf{File $\rightarrow$ New $\rightarrow$ Other...}} das Kontextmen"u (Abbildung \ref{abb:auswahljunit}) für neue Klassen aufgerufen werden.\par
 		%
 		\image{content/testerstellen/image/AuswahlJUnit.png}{scale=0.4}{htbp}[Auswahl JUnit Test Case][Auswahl JUnit Test Case][abb:auswahljunit]
 		%
@@ -71,11 +71,16 @@ public class Calculator {
 		\newpage
 		Im n"achsten Fenster (Abbildung \ref{abb:auswahlmethoden}) kann ausgewählt werden, welche Methoden getestet werden sollen. Für den Rechner werden die beiden Funktionen add() und multyply() getestet. Durch Klicken auf Finish wird die Testklasse erstellt.\par
 		%
-		\image{content/testerstellen/image/AuswahlMethoden.png}{scale=0.4}{htbp}[Auswahl der Methoden][Auswahl der zu testenden Methoden][abb:auswahlmethoden] 
+		\image{content/testerstellen/image/AuswahlMethoden.png}{scale=0.35}{htbp}[Auswahl der Methoden][Auswahl der zu testenden Methoden][abb:auswahlmethoden] 
 		%
+		Beim Erstellen der Ersten Testklasse erscheint, wie in Abbildung \ref{abb:warningjunit4} dahrgestellt, eine Meldung, da die JUnit Library noch nicht im Pfad des Projektes eingebunden ist. Die Standardeinstellung in diesem Fenster (\textsf{Perform the following action:} und der Auswahl  \textsf{Add JUnit library to the build path}) ist für die meisten Anwendung die Richtige, so auch in diesem Beispiel. Durch klicken auf OK wird die Library in den Pfad des Projektes eingebunden und JUnit kann genutzt werden. 
+		%
+		\image{content/testerstellen/image/WarningJunit4.png}{scale=0.35}{htbp}[Warnung JUnit nicht im Pfad][Warnung JUnit nicht im Pfad][abb:warningjunit4] 
+		%
+		\newpage
 		Anschliessend wird die Testklasse automatisch generiert. Dabei wird für den Test des Rechners folgender Code erzeugt:\\
 		%
-\begin{lstlisting}[style=JAVA,caption={Hallo Welt},label={list:hallowelt}]
+\begin{lstlisting}[style=JAVA,caption={Testklasse},label={list:testklasse}]
 package ApplicationCodeTest;
 
 import static org.junit.Assert.*;
@@ -95,15 +100,32 @@ public class CalculatorTest {
 }
 \end{lstlisting}
 		%
+		Wie in Listing \ref{list:testklasse} zu sehen ist, werden für beide Methoden des Rechners jeweils eine Testmethode mit der \textsf{@Test} Annotation\footnote{Erklährung zu den Annotationen im Kapitel \ref{s:annotationen} auf Seite \pageref{s:annotationen}} erstellt. Die neu Erstellten Testmethoden werden grundsätzlich nach dem Schema \textsf{test} + \textsf{Methodenname der zu testenden Methode()} benannt. Standardmässig werden die alle Testmethoden mit dem Aufruf \textsf{fail("Not yet implemented")} erzeugt.
+		%
+		\subsection*{Den Test laufen lassen}\label{ss:testlaufenlassen}
+		Nach dem Erstellen der Testklasse und deren Methoden kann der Test einmal durchlaufen werden. Gestartet wird ein Test unter \textcolor{bfhorange}{\textsf{Run $\rightarrow$ Run As $\rightarrow$ JUnit Test}}.\par
+		%
+		Nach dem Durchlaufen des Tests erscheint auf der linken Seite in der \textsf{Eclipse IDE} ein neuer \textsf{JUnit} Tab mit den Testresultaten. Die Abbildung \ref{abb:erstertestlauf} auf der folgenden Seite zeigt diesen Tab nach dem der generierte Test ausgef"uhrt wurde. Im oberen Bereich ist zu sehen, dass zwei von zwei Test durchgeführt wurden (Runs: 2/2). Beide Test sind jedoch gescheitert (Failures: 2), da bei der Standardimplementation der Testmethoden der bereits erwähnte \textsf{fail("Not yet implemented")} Aufruf generiert wurde.
+		%
+		\image{content/testerstellen/image/Fehler.png}{scale=0.5}{htbp}[Erster Testlauf][Erster JUnit Testlauf][abb:erstertestlauf] 
+		%
+		%
+	\newpage
 	\section{Zusammenfassung}\label{s:zusammenfassung}
 		Die einzelnen Schritte werden hier noch einmal kurz zusammengefasst:
 		%
 		\begin{enumerate}
-			\item Source-Folder für Tests erstellen unter \textit{File $\rightarrow$ New $\rightarrow$ Source Folder}.
+			\item Source-Folder für Tests erstellen unter \textcolor{bfhorange}{\textsf{File $\rightarrow$ New $\rightarrow$ Source Folder}}.
 			%
-			\item Menu für eine neue Testklasse öffnen mit \textit{File $\rightarrow$ New $\rightarrow$ Other... $\rightarrow$ JUnit Test Case}.
+			\item Menu für eine neue Testklasse öffnen mit \textcolor{bfhorange}{\textsf{File $\rightarrow$ New $\rightarrow$ Other... $\rightarrow$ JUnit Test Case}}.
 			%
 			\item Einstellungen (siehe Abbildung \ref{abb:testcaseerstellen} auf Seite \pageref{abb:testcaseerstellen}) für die Testklasse vornehmen und auf Next klicken.
 			%
 			\item Auswahl der zu testenden Methoden, beenden mit Klick auf Finish.
+			%
+			\item Die JUnit Library in das Projekt einbinden, erscheint ein Fenster mit einer Warnung.
+			%
+			\item Funktionalität der Testmethoden implementieren
+			%
+			\item Test Starten mit \textcolor{bfhorange}{\textsf{Run $\rightarrow$ Run As $\rightarrow$ JUnit Test}}
 		\end{enumerate}
