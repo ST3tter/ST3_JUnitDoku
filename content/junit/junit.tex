@@ -24,7 +24,9 @@
 		%
 	\newpage
 	\section{Funktionsweise}\label{s:funktionsweise}
-		Ein 
+		Das Framework \textsf{JUnit} bietet verschiedene Funktionen um Java Software zu testen. Mit sogenannten Annotationen können den Methoden bestimmte Aufgaben für die Test zugeordnet werden. Eine Auflistung dieser ist im Kapitel \ref{ss:annotationen} zu finden. Wurde ein Test Case erstellt und die Testmethode implementiert, so kann der Code mit diversen Tests, so genannten Asserts, die Funktionalität der Software getestet werden.\par
+		%
+		In den folgenden drei Kapiteln wird etwas genauer auf den Aufbau und die Möglichkeiten eines Test mit \textsf{JUnit} eingegangen.
 		%
 	\subsection{Test Cases}\label{ss:testcase}
 		In einem Test Case wird eine ganze Klasse getestet. Dazu wird eine neue Testklasse erstellt und die entsprechenden Testfälle implementiert. Im Listing \ref{list:bsptestklasse} ist ein kleines Beispiel für eine solche Testklasse abgebildet.\par
@@ -63,7 +65,7 @@ public class ClassNameTest {
 		Annotationen werden benötigt, um einer Methode ein Typ zuzuweisen.
 		Wird zum Beispiel \textsf{@Test} vor eine Methode geschrieben, so wird diese vom JUnit-Framework als Testmethode registriert und als solche ausgeführt.\par
 		%
-		Es extsitieren verschiedene solcher Annotationen:
+		Es stehen folgende Annotationen zur Verfügung:
 		%
 		\begin{description}
 			\item[@Test] Diese Annotation identifiziert eine Methode als Testmethode.
@@ -85,7 +87,9 @@ public class ClassNameTest {
 		%
 	\newpage
 	\subsection{Asserts}\label{ss:asserts}
-		Ja Ja
+		Mit den Asserts wird die eigentliche Prüfung des Codes realisiert. \par
+		%
+		Folgende Methoden für die Prüfung des Codes stehen dem Benutzer zur Verfügung:
 		%
 		\begin{description}
 			\item[fail(String)]
