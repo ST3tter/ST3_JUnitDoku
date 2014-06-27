@@ -13,8 +13,33 @@
 % 0.0.0       Erstellung der Datei
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{EclEmma}\label{ch:eclemma}
+	\textsf{EclEmma}\cite{lit:eclemma} bietet ergänzende Funktionen für das \textsf{JUnit} Test-Framework. Mit Hilfe dieser Erweiterung ist es möglich, die Testabdeckung eines Unit-Tests zu visualisieren. Wurd ein Test mit \textsf{EclEmma} durchgefügrt, so wird jede Codezeile der Software grün hinterlegt, wird diese im Test durchlaufen. "Ubriger Code\footnote{Code der nicht im Test durchlaufen wurde} wird rot hinterlegt. Nach dem Test kann eine statistische Auswertung der Testabdeckung gemacht werden. Pro Klasse wird angegeben, zu wie vielen Prozent der Code durch den letzten Testdurchlauf abgedeckt war.\par
+	%
+	Mit den Informationen aus der statistischen Auswertung kann nun bei bedarf die der Test-Code angepasst werden, um auch die zuvor nicht abgedeckten Codebereiche zu testen. Somit kann schlussendlich die Qualität der Test und zugleich die des gesamten Code verbessert werden. 
 	%
 	\section{Installation}\label{s:installation}
+		\textsf{EclEmma} ist als Plugin von der Internetseite \hyperlink{http://www.eclemma.org/installation.html}{www.eclemma.org/installation.html} aus installiert werden.
+		Die Installation von \textsf{EclEmma} als \textsf{Eclipse} Plugin ist schnell und einfach gemacht.\par
+		%
+		\begin{enumerate}
+			\item Unter \textcolor{bfhorange}{\textsf{Help $\rightarrow$ Install New Software...}} kann das Installationsmenü von \textsf{Eclipse} aufgerufen werden
+			%
+			\item Im Eingabefeld Work with: kann der Pfad \textcolor{bfhorange}{\textsf{http://update.eclemma.org/}} angegeben werden.
+			%
+			\item EclEmma in der liste auswählen und auf Next klicken. 
+			%
+			\item Danach kann der Installationskontext gefolgt werden.
+			%
+		\end{enumerate}
+		%
+		Nach einem Neustart von \textsf{Eclipse} ist das Plugin verfügbar und kann zusammen mit \textsf{JUnit} verwendet werden.\par
 		%
 	\section{Unit-Testing mit EclEmma}\label{s:unittestingmiteclemma}
+		Ein implementierter Unit-Test kann nun mit der \textsf{EclEmma} Erweiterung gestartet werden. Unter \textcolor{bfhorange}{\textsf{Run $\rightarrow$ Coverage As $\rightarrow$ JUnit Test}} wird der Test mit dem Plugin zusammen ausgeführt.\par
+		%
+		In Abbildung \ref{abb:eclemmaausgabe} ist das Ergebnis, des in der Schritt für Schritt Anleitung erstelle Unit-Tests, mit dem \textsf{EclEmma} Plugin dahrgestellt. Dieser Tab öffnet sich nach dem durchlaufen des Test automatisch im unteren Bereich der Entwicklungsumgebung.\par
+		%
+		\image{content/eclemma/image/coverage.png}{scale=0.60}{htbp}[EclEmma Ausgabe][Ausgabe der statistischen Analyse von EclEmma][abb:eclemmaausgabe]
+		%
+		Die  beiden Methoden \textsf{add()} und \textsf{multiply()} wurden zu 100\% abgedeckt. Natürlich ist ein Test der Codeabdeckung für solch einfache Methoden kaum erforderlich. Bei komplizierteren Methoden und Klassen kann dies jedoch sehr nützlich sein, um qualitativ hochwertige Test zu schreiben.
 		%
