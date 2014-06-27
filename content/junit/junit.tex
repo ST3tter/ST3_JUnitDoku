@@ -27,7 +27,8 @@
 		Ein
 		%
 	\subsection{Test Cases}\label{ss:testcase}
-	
+		In einem Test Case wird eine ganze Klasse getestet. Dazu wird eine neue Testklasse erstellt und die entsprechenden Testfälle implementiert. Im Listing \ref{list:bsptestklasse} ist ein kleines Beispiel für eine solche Testklasse abgebildet.\par
+		%
 \begin{lstlisting}[style=JAVA,caption={Beispiel einer Testklasse},label={list:bsptestklasse}]
 package ApplicationCodeTest;		// <-- Eigenes Testpacket
 
@@ -41,20 +42,31 @@ public class ClassNameTest {
 
 	@Test	// <-- @Test Annotation identifiziert methode als Testmethode
 	public void methodOne() {
+	
 		/* Test Code für diese Methode hier einfügen */
+		
 	}
 
 	@Test	// <-- @Test Annotation identifiziert methode als Testmethode
 	public void methodTwo() {
+	
 		/* Test Code für diese Methode hier einfügen */
+		
 	}
 }
 \end{lstlisting}
 		%
+		Die beiden Testmethoden (Zeile 11-16 und 18-23) testen je die Funktionalität einer Methode. vor der Testmethode wird mit der \textsf{@Test} Annotation die Methode als Testmethode definiert. Mehr Informationen zu den Annotationen sind im folgenden Kapitel \ref{ss:annotationen} beschrieben. Neben der zu testenden Klasse müssen noch zwei weitere Dateien für das JUnit-Framework in die Klasse eingebunden werden. 
+		%
+	\newpage
 	\subsection{Annotationen}\label{ss:annotationen}
+		Annotationen werden benötigt, um einer Methode ein Typ zuzuweisen.
+		Wird zum Beispiel \textsf{@Test} vor eine Methode geschrieben, so wird diese vom JUnit-Framework als Testmethode registriert und als solche ausgeführt.\par
+		%
+		Es extsitieren verschiedene solcher Annotationen:
 		%
 		\begin{description}
-			\item[@Test ] Diese Annotation identifiziert eine Methode als Testmethode.
+			\item[@Test] Diese Annotation identifiziert eine Methode als Testmethode.
 			%
 			\item[@Test (expected = Exception.class)] Die Testmethode gibt einen Fehler aus, wird die erwartete Exeption nicht ausgel"ost
 			% 
@@ -71,6 +83,7 @@ public class ClassNameTest {
 			\item[@AfterClass] Wiederum das Gegenstück zur \textsf{@BeforeClass} Annotation ist \textsf{@AfterClass}. Diese Methoden werden ganz am Ende des Tests durchlaufen.
 		\end{description}
 		%
+	\newpage
 	\subsection{Asserts}\label{ss:asserts}
 		Ja Ja
 		%
