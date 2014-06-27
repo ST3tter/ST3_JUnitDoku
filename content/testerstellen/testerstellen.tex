@@ -86,6 +86,8 @@ package ApplicationCodeTest;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import ApplicationCode.Calculator;
+
 public class CalculatorTest {
 
 	@Test
@@ -100,14 +102,38 @@ public class CalculatorTest {
 }
 \end{lstlisting}
 		%
-		Wie in Listing \ref{list:testklasse} zu sehen ist, werden für beide Methoden des Rechners jeweils eine Testmethode mit der \textsf{@Test} Annotation\footnote{Erklährung zu den Annotationen im Kapitel \ref{s:annotationen} auf Seite \pageref{s:annotationen}} erstellt. Die neu Erstellten Testmethoden werden grundsätzlich nach dem Schema \textsf{test} + \textsf{Methodenname der zu testenden Methode()} benannt. Standardmässig werden die alle Testmethoden mit dem Aufruf \textsf{fail("Not yet implemented")} erzeugt.
+		Wie in Listing \ref{list:testklasse} zu sehen ist, werden für beide Methoden des Rechners jeweils eine Testmethode mit der \textsf{@Test} Annotation\footnote{Erklährung zu den Annotationen im Kapitel \ref{ss:annotationen} auf Seite \pageref{ss:annotationen}} erstellt. Die neu Erstellten Testmethoden werden grundsätzlich nach dem Schema \textsf{test} + \textsf{Methodenname der zu testenden Methode()} benannt. Standardmässig werden die alle Testmethoden mit dem Aufruf \textsf{fail("Not yet implemented")} erzeugt.
 		%
 		\subsection*{Den Test laufen lassen}\label{ss:testlaufenlassen}
-		Nach dem Erstellen der Testklasse und deren Methoden kann der Test einmal durchlaufen werden. Gestartet wird ein Test unter \textcolor{bfhorange}{\textsf{Run $\rightarrow$ Run As $\rightarrow$ JUnit Test}}.\par
-		%
-		Nach dem Durchlaufen des Tests erscheint auf der linken Seite in der \textsf{Eclipse IDE} ein neuer \textsf{JUnit} Tab mit den Testresultaten. Die Abbildung \ref{abb:erstertestlauf} auf der folgenden Seite zeigt diesen Tab nach dem der generierte Test ausgef"uhrt wurde. Im oberen Bereich ist zu sehen, dass zwei von zwei Test durchgeführt wurden (Runs: 2/2). Beide Test sind jedoch gescheitert (Failures: 2), da bei der Standardimplementation der Testmethoden der bereits erwähnte \textsf{fail("Not yet implemented")} Aufruf generiert wurde.
-		%
-		\image{content/testerstellen/image/Fehler.png}{scale=0.5}{htbp}[Erster Testlauf][Erster JUnit Testlauf][abb:erstertestlauf] 
+			Nach dem Erstellen der Testklasse und deren Methoden kann der Test einmal durchlaufen werden. Gestartet wird ein Test unter \textcolor{bfhorange}{\textsf{Run $\rightarrow$ Run As $\rightarrow$ JUnit Test}}.\par
+			%
+			Nach dem Durchlaufen des Tests erscheint auf der linken Seite in der \textsf{Eclipse IDE} ein neuer \textsf{JUnit} Tab mit den Testresultaten. Die Abbildung \ref{abb:erstertestlauf} auf der folgenden Seite zeigt diesen Tab nach dem der generierte Test ausgef"uhrt wurde. Im oberen Bereich ist zu sehen, dass zwei von zwei Test durchgeführt wurden (Runs: 2/2). Beide Test sind jedoch gescheitert (Failures: 2), da bei der Standardimplementation der Testmethoden der bereits erwähnte \textsf{fail("Not yet implemented")} Aufruf generiert wurde.\par
+			%
+			\image{content/testerstellen/image/Fehler.png}{scale=0.5}{htbp}[Erster Testlauf][Erster JUnit Testlauf][abb:erstertestlauf] 
+			%
+		\newpage
+		\subsection*{Tests schreiben}\label{ss:testschreiben}
+			Damit die Test nicht nur eine Fehlermeldung ausgeben, muss Testcode für die beiden Methoden geschrieben werden. Im Listing \ref{list:testklasseinhalt} ist ein Beispiel für die Implementierung der Testmethoden abgebildet.
+			%
+\begin{lstlisting}[style=JAVA,caption={Testklasse},label={list:testklasseinhalt}]
+public class CalculatorTest {
+
+	@Test
+	public void testAdd() {
+		Calculator myCalculator = new Calculator();
+		/* Prüft, die Addition von 2 + 3 gleich 5 ist */
+		assertTrue("Addition test", myCalculator.add(2, 3) == 5);
+	}
+
+	@Test
+	public void testMultiply() {
+		Calculator myCalculator = new Calculator();
+		/* Prüft, die Multiplikation von 3 * 5 gleich 15 ist */
+		assertTrue("Multiply test", myCalculator.multiply(3, 5) == 15);
+	}
+
+}
+\end{lstlisting}
 		%
 		%
 	\newpage

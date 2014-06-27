@@ -87,27 +87,28 @@ public class ClassNameTest {
 		%
 	\newpage
 	\subsection{Asserts}\label{ss:asserts}
-		Mit den Asserts wird die eigentliche Prüfung des Codes realisiert. \par
+		Mit den Asserts wird die eigentliche Prüfung des Codes realisiert. Asserts sind Mthoden, die zum Beispiel die gleichheit zweier Werte vergleicht und im Fehlerfall ein Error ausgeben.\par
 		%
 		Folgende Methoden für die Prüfung des Codes stehen dem Benutzer zur Verfügung:
 		%
 		\begin{description}
-			\item[fail(String)]
+			\item[fail(message)] Diese Methode kann verwendet werden, wenn zum Beispiel eine Testmethode noch nicht implementiert wurde. Wird \textsf{fail(message)} aufgerufen, so wird automatisch ein Fehler mit der übergebenen Fehlermeldung ausgegeben. 
 			%
-			\item[assertTrue({[}message{]}, boolean condition)]
+			\item[assertTrue({[}message{]}, boolean condition)] Diese Methode erwartet, dass die condition den true annimmt. Ansonsten wird ein Fehler für diesen Test zurückgegeben. 
 			% 
-			\item[assertFalse({[}message{]}, boolean condition)]
+			\item[assertFalse({[}message{]}, boolean condition)] "Aquivalent zur \textsf{assertTrue}-Methode wird in diesem Fall der wert false erwartet, damit der Test erfüllt ist.
 			%
-			\item[assertEquals({[}String message{]}, expected, actual)]
+			\item[assertEquals({[}message{]}, expected, actual)] \textsf{assertEquals} prüft auf die Gleichheit von den Eingaben expected und actual. Oft wird bei expected ein fester Wert übergeben und bei actual das Ergebnis einer Methode.
 			%
-			\item[assertEquals({[}String message{]}, expected, actual, tolerance)]
+			\item[assertEquals({[}message{]}, expected, actual, tolerance)] Erweiternd zu dieser Methode kann auch noch eine Toleranz angegeben werden, welche die maximale Abweichung der beiden Werte definiert.
 			% 
-			\item[assertNull({[}message{]}, object)]
+			\item[assertNull({[}message{]}, object)] "Uberprüft, ob ein Object gleich Null ist. Anderenfalls wird ein Fehler ausgegeben.
 			%
-			\item[assertNotNull({[}message{]}, object)]
+			\item[assertNotNull({[}message{]}, object)] Soll sichergestellt werden, dass ein Objekt ungleich Null ist, so kann diese Testmethode verwendet werden.
 			% 
-			\item[assertSame({[}String{]}, expected, actual)] 
+			\item[assertSame({[}message{]}, expected, actual)] Diese Methode prüft, ob beide übergebenen Variablen auf das gleiche Objekt zeigen.
 			% 
-			\item[assertNotSame({[}String{]}, expected, actual)] 
+			\item[assertNotSame({[}message{]}, expected, actual)] Methode, um die Ungleichheit zweier Variablen zu testen.
 		\end{description}
 		%
+		Allen Assert-Methoden kann optional eine Nachricht mitgegeben werde, damit sich der Fehler besser identifizieren und nachvollziehen lässt. Diese Nachricht beinhaltet meistens einen kleinen beschrieb des entsprechenden Tests.
