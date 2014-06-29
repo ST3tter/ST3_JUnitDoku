@@ -13,9 +13,9 @@
 % 0.0.0       Erstellung der Datei
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{JUnit}\label{ch:junit}
-	\textsf{JUnit}\cite{lit:junit} ist ein Unit-Test-Framework f"ur Java-Code und gehört zur Framework-Familie \textsf{xUnit}. Mit Hilfe von \textsf{JUnit} könne  Testklassen erstellt werden, die bestimme Bereiche oder Klassen einer Java-Software testen. Meist werden in einer Testklasse einzelne Methoden oder das Zusammenspiel von bestimmten Methoden einer oder mehrerer Klassen getestet.\par
+	\textsf{JUnit}\cite{lit:junit} ist ein Unit-Test-Framework f"ur Java-Code und gehört zur Framework-Familie \textsf{xUnit}. Mit Hilfe von \textsf{JUnit} könne Testklassen erstellt werden, die bestimme Bereiche oder Klassen einer Java-Software testen. Meist werden in einer Testklasse einzelne Methoden oder das Zusammenspiel von bestimmten Methoden einer oder mehrerer Klassen getestet.\par
 	%
-	In Kapitel \ref{ch:testerstellen} ab Seite \pageref{ch:testerstellen} ist eine Schritt f"ur Schritt Anleitung f"ur das Erstellen eines JUnit-Tests zu finden. Diese Tutorial zeigt die grundlegenden Funktionen von \textsf{JUnit} anhand eines einfachen Beispiels. Weitere Anleitungen und Hilfen zu diesem Thema sind im Internet\footnote{Gute Informationsquellen sind das \hyperlink{https://github.com/junit-team/junit/wiki}{\textsf{JUnit} Wiki}\cite{lit:wiki}  oder die beiden Tutorials \hyperlink{http://www.tutego.de/blog/javainsel/2010/04/junit-4-tutorial-java-tests-mit-junit/}{JUnit 4 Tutorial, Java-Tests mit JUnit}\cite{lit:tutorial1} und \hyperlink{http://www.vogella.com/tutorials/JUnit/article.html}{Unit Testing with JUnit - Tutorial}\cite{lit:tutorial2}} haufenweise zu finden. 
+	In Kapitel \ref{ch:testerstellen} ab Seite \pageref{ch:testerstellen} ist eine Schritt f"ur Schritt Anleitung f"ur das Erstellen eines JUnit-Tests zu finden. Diese Tutorial zeigt die grundlegenden Funktionen von \textsf{JUnit} anhand eines einfachen Beispiels auf. Weitere Anleitungen und Hilfen zu diesem Thema sind im Internet\footnote{Gute Informationsquellen sind das \hyperlink{https://github.com/junit-team/junit/wiki}{\textsf{JUnit} Wiki}\cite{lit:wiki}  oder die beiden Tutorials \hyperlink{http://www.tutego.de/blog/javainsel/2010/04/junit-4-tutorial-java-tests-mit-junit/}{JUnit 4 Tutorial, Java-Tests mit JUnit}\cite{lit:tutorial1} und \hyperlink{http://www.vogella.com/tutorials/JUnit/article.html}{Unit Testing with JUnit - Tutorial}\cite{lit:tutorial2}} haufenweise zu finden. 
 	%
 	\section{xUnit}\label{s:xunit}
 		\textsf{JUnit} gehört zu der Framework-Familie \textsf{xUnit}. Verschiedenen Unit-Test Umgebungen für verschiedenen Programmiersprachen werden mit dem Begriff \textsf{xUnit} zusammengefasst. Das x in \textsf{xUnit} stellt dabei ein Platzhalter zur Identifikation der zu testenden Programmiersprache des Frameworks dar. In den Meisten F"allen wird das x mit den ersten Buchstaben der Programmiersprache ersetzt (z.B. CUnit für C oder JUnit für Java).\par
@@ -24,7 +24,7 @@
 		%
 	\newpage
 	\section{Funktionsweise}\label{s:funktionsweise}
-		Das Framework \textsf{JUnit} bietet verschiedene Funktionen um Java Software zu testen. Mit sogenannten Annotationen können den Methoden bestimmte Aufgaben für die Test zugeordnet werden. Eine Auflistung dieser ist im Kapitel \ref{ss:annotationen} zu finden. Wurde ein Test Case erstellt und die Testmethode implementiert, so kann der Code mit diversen Tests, so genannten Asserts, die Funktionalität der Software getestet werden.\par
+		Das Framework \textsf{JUnit} bietet verschiedene Funktionen um Java Software zu testen. Mit sogenannten Annotationen können den Methoden bestimmte Aufgaben für die Test zugeordnet werden. Eine Auflistung dieser ist im Kapitel \ref{ss:annotationen} zu finden. Wurde ein Test Case erstellt und die Testmethoden implementiert, so kann mit diversen Tests, so genannten Asserts, die Funktionalität der Software getestet werden.\par
 		%
 		In den folgenden drei Kapiteln wird etwas genauer auf den Aufbau und die Möglichkeiten eines Test mit \textsf{JUnit} eingegangen.
 		%
@@ -78,7 +78,7 @@ public class ClassNameTest {
 			%
 			\item[@Before] Eine Methode mit, die mit der \textsf{@Before} Annotation gekennzeichnet ist, wird vor jedem Test ausgeführt.
 			% 
-			\item[@After] Dies ist das Gegenstück zur \textsf{@Before} Annotation. Diese Methoden werden nach jedem Test ausgeführt.
+			\item[@After] Dies ist das Gegenstück zur \textsf{@Before} Annotation. Methoden mit \textsf{@After} gekennzeichnet, werden nach jedem Test ausgeführt.
 			%
 			\item[@BeforeClass] Methoden mit der \textsf{@BeforeClass} Annotation werden nur einmal, ganz zu Beginn des Testdurchlaufes, ausgeführt.
 			% 
@@ -87,14 +87,14 @@ public class ClassNameTest {
 		%
 	\newpage
 	\subsection{Asserts}\label{ss:asserts}
-		Mit den Asserts wird die eigentliche Prüfung des Codes realisiert. Asserts sind Mthoden, die zum Beispiel die gleichheit zweier Werte vergleicht und im Fehlerfall ein Error ausgeben.\par
+		Mit den Asserts wird die eigentliche Prüfung des Codes realisiert. Asserts sind Mthoden, die zum Beispiel die Gleichheit zweier Werte vergleicht und im Fehlerfall ein Fehler ausgeben.\par
 		%
 		Folgende Methoden für die Prüfung des Codes stehen dem Benutzer zur Verfügung:
 		%
 		\begin{description}
 			\item[fail(message)] Diese Methode kann verwendet werden, wenn zum Beispiel eine Testmethode noch nicht implementiert wurde. Wird \textsf{fail(message)} aufgerufen, so wird automatisch ein Fehler mit der übergebenen Fehlermeldung ausgegeben. 
 			%
-			\item[assertTrue({[}message{]}, boolean condition)] Diese Methode erwartet, dass die condition den true annimmt. Ansonsten wird ein Fehler für diesen Test zurückgegeben. 
+			\item[assertTrue({[}message{]}, boolean condition)] Diese Methode erwartet, dass die condition den Wert true annimmt. Ansonsten wird ein Fehler für diesen Test zurückgegeben. 
 			% 
 			\item[assertFalse({[}message{]}, boolean condition)] "Aquivalent zur \textsf{assertTrue}-Methode wird in diesem Fall der wert false erwartet, damit der Test erfüllt ist.
 			%
